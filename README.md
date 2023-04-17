@@ -8,7 +8,7 @@ In this updated version, we have added a new parameter tag_input_type to the __i
 You can now create instances of the HTMLTagGenerator class for <input>, <div>, <a>, and <i> tags, and generate the corresponding HTML code by calling the generate_tag method with appropriate values for tag_name, tag_text, tag_attributes, and tag_input_type. Here are some examples:
 
 # Demo
-````
+````python
 # Create an instance of the HTMLTagGenerator class for an <input> tag
 input_tag = HTMLTagGenerator(tag_name='input', tag_attributes={'type': 'text', 'name': 'username'})
 
@@ -43,6 +43,7 @@ i_tag = HTMLTagGenerator(tag_name='i', tag_text='This is italic text!', tag_attr
 i_tag_code = i_tag.generate_tag()
 
 # Print the generated HTML code
-print(i_tag_code)```
+print(i_tag_code)
+````
 
   Good use
