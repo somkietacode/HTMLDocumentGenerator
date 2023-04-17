@@ -44,3 +44,5 @@ i_tag_code = i_tag.generate_tag()
 
 # Print the generated HTML code
 print(i_tag_code)````
+
+  Good use
