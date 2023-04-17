@@ -1,49 +1,54 @@
-# HTMLTagGenerator
-Simple Python HTML Tag Generator
+## HTMLDocumentGenerator
 
-# Explaination
+The `HTMLDocumentGenerator` is a Python class that allows you to easily generate HTML documents with customizable tags and content. It provides a simple and intuitive way to create HTML documents for websites or other applications.
 
-In this updated version, we have added a new parameter tag_input_type to the __init__ method, which represents the type attribute for the <input> tag. The generate_tag method has been modified to handle the <input> tag separately based on the tag_name and tag_input_type values.
+### Features
+- Add HTML tags with custom tag names, attributes, and content
+- Set attributes for the `<head>` tag, such as title, style, etc.
+- Generate a complete HTML document with the `<!DOCTYPE>`, `<html>`, `<head>`, and `<body>` tags
+- Generate a string representation of the HTML document
+- NEW FEATURE: Write the generated HTML document to an HTML file using the `open` function
 
-You can now create instances of the HTMLTagGenerator class for <input>, <div>, <a>, and <i> tags, and generate the corresponding HTML code by calling the generate_tag method with appropriate values for tag_name, tag_text, tag_attributes, and tag_input_type. Here are some examples:
+### Example Usage
 
-# Demo
-````python
-# Create an instance of the HTMLTagGenerator class for an <input> tag
-input_tag = HTMLTagGenerator(tag_name='input', tag_attributes={'type': 'text', 'name': 'username'})
+```python
+from html_document_generator import HTMLDocumentGenerator, HTMLTagGenerator
 
-# Generate the HTML code for the <input> tag
-input_tag_code = input_tag.generate_tag()
+# Create an instance of HTMLDocumentGenerator
+doc_generator = HTMLDocumentGenerator()
+doc_generator.set_attribute('head', 'title', 'My Website')
 
-# Print the generated HTML code
-print(input_tag_code)
+# Generate the header tag
+header_tag = HTMLTagGenerator(tag_name='header', tag_content='<h1>Welcome to My Website</h1>')
+doc_generator.add_tag(header_tag)
 
-# Create an instance of the HTMLTagGenerator class for a <div> tag
-div_tag = HTMLTagGenerator(tag_name='div', tag_text='Hello, world!', tag_attributes={'class': 'container', 'id': 'my-div'})
+# Generate the nav tag
+nav_tag = HTMLTagGenerator(tag_name='nav', tag_content='<ul><li>Home</li><li>Contact</li></ul>')
+doc_generator.add_tag(nav_tag)
 
-# Generate the HTML code for the <div> tag
-div_tag_code = div_tag.generate_tag()
+# Generate the main tag
+main_tag = HTMLTagGenerator(tag_name='main', tag_content='<p>Explore the content of my website!</p>')
+doc_generator.add_tag(main_tag)
 
-# Print the generated HTML code
-print(div_tag_code)
+# Generate the footer tag
+footer_tag = HTMLTagGenerator(tag_name='footer', tag_content='<p>Contact information: email@example.com, Phone: 123-456-7890</p>')
+doc_generator.add_tag(footer_tag)
 
-# Create an instance of the HTMLTagGenerator class for an <a> tag
-a_tag = HTMLTagGenerator(tag_name='a', tag_text='Click me!', tag_attributes={'href': 'https://www.example.com'})
+# Generate the complete HTML document
+html_doc = doc_generator.generate_document()
 
-# Generate the HTML code for the <a> tag
-a_tag_code = a_tag.generate_tag()
+# Write the generated HTML document to an HTML file
+with open('index.html', 'w') as file:
+    file.write(html_doc)
 
-# Print the generated HTML code
-print(a_tag_code)
+print('HTML file created successfully!')
+```
+Requirements
+Python 3.6+
+No external dependencies
+License
+This class is released under the MIT License.
 
-# Create an instance of the HTMLTagGenerator class for an <i> tag
-i_tag = HTMLTagGenerator(tag_name='i', tag_text='This is italic text!', tag_attributes={'class': 'italic-text'})
+Contributions
+Contributions are welcome! Please feel free to open issues or submit pull requests to improve this class.
 
-# Generate the HTML code for the <i> tag
-i_tag_code = i_tag.generate_tag()
-
-# Print the generated HTML code
-print(i_tag_code)
-````
-
-  Good use
