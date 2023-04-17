@@ -43,6 +43,6 @@ i_tag = HTMLTagGenerator(tag_name='i', tag_text='This is italic text!', tag_attr
 i_tag_code = i_tag.generate_tag()
 
 # Print the generated HTML code
-print(i_tag_code)````
+print(i_tag_code)```
 
   Good use
